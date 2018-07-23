@@ -1,0 +1,55 @@
+
+<h4 class="text-center">Registration Form</h4>
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <input type="hidden" name="$key"
+  #$key="ngModel" [(ngModel)]="employeeService.selectedEmployee.$key">
+
+  <div class="formgroup">
+    <label>Name</label>
+    <input class="form-control" 
+    name="name" #name="ngModel" 
+    [(ngModel)]="employeeService.selectedEmployee.name"
+    placeholder="Full name" required>
+  </div>
+
+  <div class="formgroup">
+    <label>Position</label>
+    <input class="form-control" 
+    name="position" #position="ngModel" 
+    [(ngModel)]="employeeService.selectedEmployee.position"
+    placeholder="position">
+  </div>
+
+  <div class="formgroup">
+    <label>Office</label>
+    <input class="form-control" 
+    name="office" #office:="ngModel" 
+    [(ngModel)]="employeeService.selectedEmployee.office"
+    placeholder="Office">
+  </div>
+
+  <div class="formgroup">
+    <label>Salary</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+         <span class="input-group-text"><i class="fa fa-rupee"></i></span>
+      </div>
+      <input class="form-control" 
+        name="salary" #salary="ngModel" 
+        [(ngModel)]="employeeService.selectedEmployee.salary"
+        placeholder="Salary">
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+      <button class="btn btn-primary" type="submit"
+      [disabled]="!employeeForm.valid">
+       <span><i class="fa fa-floppy-o"></i></span>
+        Submit</button>
+      <button class="btn btn-default" type="button"
+      (click)="resetForm(employeeForm)">
+          <span><i class="fa fa-repeat"></i></span>
+        Reset</button>
+  </div>
+
+</form>
